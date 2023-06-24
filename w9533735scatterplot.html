@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<!-- Loading of d3.js library -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+</head>
+<body>
+  <h3>W9533735 - Saichandra Muvva</h3>
+<script>
+  
+
+  // graph dimension
+  var margin = {top: 20, right: 30, bottom: 30, left: 60},
+      width = 550 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+      // load the svg
+      var svg = d3.select("#my_dataviz")
+        .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+          .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")")
+        .style("background","black");
+  
+  // acess the data from external json file
+  d3.json("scatterp.json", function(data) {
+  
+    // creating x axis
+    var x = d3.scaleLinear()
+      .domain([0, 0])
+      .range([ 0, width ]);
+    svg.append("g")
+      .attr("class", "myXaxis")   // Note that here we give a class to the X axis, to be able to call it later and modify it
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x))
+      .attr("opacity", "0")
+  
+    // creating y axis
+    var y = d3.scaleLinear()
+      .domain([0, 100])
+      .range([ height, 0]);
+    svg.append("g")
+      .call(d3.axisLeft(y));
+      // add x axis label
+      
+      svg.append("text")
+    .attr("class", "x label")
+    .attr("text-anchor", "end")
+    .attr("x", 300)
+    .attr("y", 380)
+    .text("maths score");
+    // add y axis label
+
+    svg.append("text")
+    .attr("class", "y label")
+    .attr("text-anchor", "end")
+    .attr("x", -90)
+    .attr("y", -30)
+    .attr("transform", "rotate(-90)")
+    .text("writing score");
+
+  // predefine colour function 
+    function colourChooser(d){
+    if((x(d.m)<400 && y(d.a)<200))
+      return 'green';
+    return 'red';
+
+  }
+  
+    // Adding of dots as values from dataset
+    svg.append('g')
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("cx", function (d) { return x(d.m); } )
+        .attr("cy", function (d) { return y(d.a); } )
+        .attr("r", 2)
+        .style("fill",colourChooser)
+    
+  // i have taken this from refernce of d3.js gallery
+    // newly axis
+    x.domain([0, 100])
+    svg.select(".myXaxis")
+      .transition()
+      .duration(2000)
+      .attr("opacity", "1")
+      .call(d3.axisBottom(x));
+  
+    svg.selectAll("circle")
+      .transition()
+      .delay(function(d,i){return(i*3)})
+      .duration(2000)
+      .attr("cx", function (d) { return x(d.m); } )
+      .attr("cy", function (d) { return y(d.a); } )
+
+      // writing the title of graph
+    d3.select('svg')
+      .append('text')
+      .attr('x',150)
+      .attr('y',20)
+      .style('fill','black')
+      .text('students score');  
+
+      // Adding legend to the graph
+    svg.append('g')
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("cx",  330 )
+        .attr("cy", 250   )
+        .attr("r", 3)
+        .style("fill",'red') 
+        
+        svg.append('g')
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("cx",  330 )
+        .attr("cy", 280   )
+        .attr("r", 3)
+        .style("fill",'green')
+      
+     d3.select('svg')
+      .append('text')
+      .attr('x',400)
+      .attr('y',273)
+      .style('fill','red')
+      .text('- badscore');
+
+    d3.select('svg')
+      .append('text')
+      .attr('x',400)
+      .attr('y',303)
+      .style('fill','green')
+      .text('- goodscore');
+           
+          
+  })
+  
+  </script>
+</body>
+</html>
