@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+  <meta charset='utf-8'>
+  <script src='https://d3js.org/d3.v4.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js'></script>
+  <h1>What is the Average score for all Parental level of education by Ethnicity?</h1>
+  <h2>Name : Navya Lekshmi Maya</h2>
+  <h2>Number:W9554129</h2>
+  <style>
+    .axis-bottom .domain {
+      display: none;
+    }
+    
+    .n {
+      opacity: .8;
+      font-size: 15px;
+      margin-left: 4px;
+      font-family: sans-serif;
+      color: white;
+      padding: 6px;
+      background-color: #3C3176;
+    }
+ 
+  </style>
+</head>
+
+<body>
+  <script>
+        
+const data = [
+  {
+    'Ethnicity': 'Group A',
+    'Associate Degree': 63.88,
+    'Bachelor Degree': 67.86,
+    'High School': 61.28,
+    'Master Degree': 63.33,
+    'Some College': 64.89,
+    'Some High School': 59.86,
+    
+  },
+  {
+    'Ethnicity': 'Group B',
+    'Associate Degree': 67.98,
+    'Bachelor Degree': 71.30,
+    'High School': 61.50,
+    'Master Degree': 74.84,
+    'Some College': 64.38,
+    'Some High School': 64.29,
+    
+  },
+  {
+    'Ethnicity': 'Group C',
+    'Associate Degree': 69.30,
+    'Bachelor Degree': 73.94,
+    'High School': 62.33,
+    'Master Degree': 69.04,
+    'Some College': 67.81,
+    'Some High School': 53.16,
+    
+  },
+  {
+    'Ethnicity': 'Group D',
+    'Associate Degree': 69.33,
+    'Bachelor Degree': 69.87,
+    'High School': 63.80,
+    'Master Degree': 67.40,
+    'Some College': 70.89,
+    'Some High School': 68.86,
+    
+  },
+  {
+    'Ethnicity': 'Group E',
+    'Associate Degree': 60.88,
+    'Bachelor Degree': 59.86,
+    'High School': 58.28,
+    'Master Degree': 53.33,
+    'Some College': 54.89,
+    'Some High School': 50.86,
+    
+  },
+
+];
+
+const keys = Object.keys(data[0]).slice(1);
+    
+const tip = d3.tip().html(d=> d.value);
+
+const margin = {
+    top: 40,
+    right: 100,
+    bottom: 20,
+    left: 30
+  },
+  width = 800,
+  height = 600,
+  innerWidth = width - margin.left - margin.right,
+  innerHeight = height - margin.top - margin.bottom,
+  svg = d3.select('body').append('svg').attr('width', width).attr('height', height)
+  g = svg.append('g').attr('transform', `translate(${margin.left}, ${margin.top})`);
+    
+svg.call(tip)
+
+const x0 = d3.scaleBand()
+  .rangeRound([0, innerWidth])
+  .paddingInner(.1);
+
+const x1 = d3.scaleBand()
+  .padding(.05);
+
+const y = d3.scaleLinear()
+  .rangeRound([innerHeight, 80]);
+
+const z = d3.scaleOrdinal()
+  .range(['#AA8139', '#AA9439', '#3C3176', '#2C4770', '#96A537', '#68266F', '#492E74']);
+    
+  x0.domain(data.map(d => d.Ethnicity));
+  x1.domain(keys).rangeRound([0, x0.bandwidth()]);
+  y.domain([0, d3.max(data, d => d3.max(keys, key=> d[key]))]).nice();
+
+g.append('g')
+  .selectAll('g')
+  .data(data)
+  .enter()
+  .append('g')
+  .attr('transform', d => 'translate(' + x0(d.Ethnicity) + ',0)')
+  .selectAll('rect')
+  .data(d => keys.map(key => {return {key: key, value: d[key]}}))
+  .enter().append('rect')
+  .attr('x', d => x1(d.key))
+  .attr('y', d => y(d.value))
+  .attr('width', x1.bandwidth())
+  .attr('height', d => innerHeight - y(d.value))
+  .attr('fill', d =>  z(d.key))
+  .on('mouseover', tip.show)
+  .on('mouseout', tip.hide)
+
+  //
+  //
+g.append('g')
+  .attr('class', 'axis-bottom')
+  .attr('transform', 'translate(0,' + innerHeight + ')')
+  .call(d3.axisBottom(x0));
+
+g.append('g')
+  .attr('class', 'axis-left')
+  .call(d3.axisLeft(y).ticks(null, 's'))
+  .append('text')
+  .attr('x', 10)
+  .attr('y', y(y.ticks().pop()) + 10)
+  .attr('dy', '0.32em')
+  .attr('fill', '#000')
+  .style('transform', 'rotate(-90deg)')
+  .attr('font-weight', 'bold')
+  .attr('text-anchor', 'end')
+  .text('');
+  
+
+const legend = g.append('g')
+   .attr('font-family', 'sans-serif')
+   .attr('font-size', 15)
+   .attr('text-anchor', 'end')
+   .style("alignment-baseline", "start")
+   .selectAll('g')
+   .data(keys.slice().reverse())
+   .enter().append('g')
+   .attr('transform', (d, i) => 'translate(0,' + i * 20 + ')');
+
+legend.append('rect')
+  .attr('x', innerWidth - 19)
+  .attr('width', 10)
+  .attr('height', 10)
+  .attr('fill', z);
+
+legend.append('text')
+  .attr('x', innerWidth - 32)
+  .attr('y', 6)
+  .attr('dy', '0.32em')
+  .text(d => d);
+
+
+
+  </script>
+</body>
