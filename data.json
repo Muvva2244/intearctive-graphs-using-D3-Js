@@ -1,0 +1,332 @@
+{
+ "name": "Gender",
+ "children": [
+  {
+   "name": "Male",
+   "children": [
+    {
+      "name": "1",
+      "children": [
+        {"name": "27"},
+        {"name": "28"},
+        {"name": "35"},
+        {"name": "36"},
+        {"name": "37"},
+        {"name": "42"},
+        {"name": "43"},
+        {"name": "95"},
+        {"name": "96"},
+        {"name": "99"}
+      ]
+    },
+    {
+      "name": "2",
+      "children": [
+        {"name": "30"},
+        {"name": "39"},
+        {"name": "41"},
+        {"name": "56"},
+        {"name": "92"},
+        {"name": "93"},
+        {"name": "98"}
+			]
+    },
+    {
+      "name": "3",
+      "children": [
+        {"name": "44"}
+			]
+    },
+    {
+      "name": "4",
+      "children": [
+        {"name": "45"},
+        {"name": "48"},
+        {"name": "50"},
+        {"name": "83"},
+        {"name": "97"},
+        {"name": "100"}
+			]
+    },
+    {
+      "name": "5",
+      "children": [
+        {"name": "45"},
+        {"name": "48"},
+        {"name": "50"},
+        {"name": "83"},
+        {"name": "97"},
+        {"name": "100"}
+			]
+    },
+    {
+      "name": "6",
+      "children": [
+        {"name": "46"},
+        {"name": "85"},
+        {"name": "86"},
+        {"name": "90"}
+			]
+    },
+    {
+      "name": "7",
+      "children": [
+        {"name": "54"},
+        {"name": "91"}
+			]
+    },
+    {
+      "name": "8",
+      "children": [
+        {"name": "57"},
+        {"name": "60"},
+        {"name": "64"},
+        {"name": "65"},
+        {"name": "77"},
+        {"name": "78"}
+			]
+    },
+    {
+      "name": "9",
+      "children": [
+        {"name": "49"},
+        {"name": "82"},
+        {"name": "84"},
+        {"name": "88"}
+			]
+    },
+    {
+      "name": "10",
+      "children": [
+        {"name": "55"},
+        {"name": "67"},
+        {"name": "70"},
+        {"name": "74"}
+			]
+    },
+    {
+      "name": "11",
+      "children": [
+        {"name": "59"},
+        {"name": "72"},
+        {"name": "75"},
+        {"name": "80"},
+        {"name": "87"}
+			]
+    },
+    {
+      "name": "12",
+      "children": [
+        {"name": "58"},
+        {"name": "66"}
+			]
+    },
+    {
+      "name": "13",
+      "children": [
+        {"name": "53"},
+        {"name": "63"},
+        {"name": "71"},
+        {"name": "76"}
+			]
+    },
+    {
+      "name": "14",
+      "children": [
+        {"name": "73"},
+        {"name": "79"},
+        {"name": "81"}
+			]
+    },
+    {
+      "name": "15",
+      "children": [
+        {"name": "68"}
+			]
+    },
+    {
+      "name": "16",
+      "children": [
+        {"name": "61"},
+        {"name": "69"}
+			]
+    },
+    {
+      "name": "19",
+      "children": [
+        {"name": "62"}
+			]
+    }
+   ]
+  },
+  {
+    "name": "Female",
+    "children": [
+      {
+        "name": "1",
+        "children": [
+          {"name": "0"},
+          {"name": "8"},
+          {"name": "18"},
+          {"name": "19"},
+          {"name": "22"},
+          {"name": "23"},
+          {"name": "24"},
+          {"name": "26"},
+          {"name": "27"},
+          {"name": "33"},
+          {"name": "36"},
+          {"name": "89"},
+          {"name": "95"},
+          {"name": "98"}
+        ]
+      },
+      {
+        "name": "2",
+        "children": [
+          {"name": "34"},
+          {"name": "39"},
+          {"name": "84"},
+          {"name": "86"},
+          {"name": "90"},
+          {"name": "91"},
+          {"name": "93"},
+          {"name": "94"},
+          {"name": "96"},
+          {"name": "97"},
+          {"name": "99"}
+        ]
+      },
+      {
+        "name": "3",
+        "children": [
+          {"name": "29"},
+          {"name": "32"},
+          {"name": "37"},
+          {"name": "38"},
+          {"name": "100"}
+        ]
+      },
+      {
+        "name": "4",
+        "children": [
+          {"name": "35"},
+          {"name": "41"},
+          {"name": "43"},
+          {"name": "83"},
+          {"name": "92"}
+        ]
+      },
+      {
+        "name": "5",
+        "children": [
+          {"name": "40"},
+          {"name": "42"},
+          {"name": "45"},
+          {"name": "46"},
+          {"name": "87"}
+        ]
+      },
+      {
+        "name": "6",
+        "children": [
+          {"name": "44"},
+          {"name": "47"},
+          {"name": "51"},
+          {"name": "78"},
+          {"name": "80"},
+          {"name": "88"}
+        ]
+      },
+      {
+        "name": "7",
+        "children": [
+          {"name": "48"},
+          {"name": "56"},
+          {"name": "72"}
+        ]
+      },
+      {
+        "name": "8",
+        "children": [
+          {"name": "49"},
+          {"name": "55"},
+          {"name": "60"},
+          {"name": "70"},
+          {"name": "76"},
+          {"name": "79"},
+          {"name": "81"},
+          {"name": "85"}
+        ]
+      },
+      {
+        "name": "9",
+        "children": [
+          {"name": "82"}
+        ]
+      },
+      {
+        "name": "10",
+        "children": [
+          {"name": "57"},
+          {"name": "75"}
+        ]
+      },
+      {
+        "name": "11",
+        "children": [
+          {"name": "50"},
+          {"name": "53"},
+          {"name": "54"},
+          {"name": "61"},
+          {"name": "68"}
+        ]
+      },
+      {
+        "name": "12",
+        "children": [
+          {"name": "64"},
+          {"name": "66"}
+        ]
+      },
+      {
+        "name": "13",
+        "children": [
+          {"name": "52"},
+          {"name": "58"},
+          {"name": "63"},
+          {"name": "71"},
+          {"name": "73"}
+        ]
+      },
+      {
+        "name": "15",
+        "children": [
+          {"name": "74"}
+        ]
+      },
+      {
+        "name": "16",
+        "children": [
+          {"name": "62"},
+          {"name": "67"},
+          {"name": "69"},
+          {"name": "77"}
+        ]
+      },
+      {
+        "name": "21",
+        "children": [
+          {"name": "59"}
+        ]
+      },
+      {
+        "name": "28",
+        "children": [
+          {"name": "65"}
+        ]
+      }
+    ]
+   }
+ ]
+}
